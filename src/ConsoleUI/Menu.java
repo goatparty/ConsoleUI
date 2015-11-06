@@ -1,6 +1,8 @@
 package ConsoleUI;
 
 import java.util.*;
+import java.util.concurrent.SynchronousQueue;
+
 public class Menu {
     private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "Eemil's ConsoleUI";
     private String menuTitle;
@@ -73,6 +75,12 @@ public class Menu {
                 }
                 System.out.print("│\n");
             }
+            System.out.print('└');
+            for (int x = 0; x < longest + 2; x++) {
+                System.out.print('─');
+            }
+            System.out.print('┘');
+
 
             isValid = true;
         } while (!isValid);
