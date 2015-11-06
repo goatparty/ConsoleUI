@@ -5,8 +5,9 @@ public class Menu {
     private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "Eemil's ConsoleUI";
     private String menuTitle;
     private boolean menuTitleSet,menuChoicesAlreadyCalled;
-    private String[] menuChoices;
+    private String[] menuChoices = new String[900];
     private int numMenuChoices;
+    private int counter;
     //____________________________________________
     //ENABLES DEBUGGING MODE WHICH BYPASSES STUFF |
     //____________________________________________|
@@ -50,18 +51,19 @@ public class Menu {
                     System.out.print('═');
                 }
             }
-            System.out.println('╕');
+            System.out.print("╕\n");
             additionalNeeded = longest - menuTitle.length() + 1;
-            System.out.println("│ " + menuTitle );
+            System.out.print("│ " + menuTitle );
             for (int x = 0; x <additionalNeeded; x++) {
                 System.out.print(' ');
             }
             System.out.println('│');
             System.out.print('├');
-            for (int x = 0; x < longest; x++) {
+            for (int x = 0; x < longest + 2; x++) {
                 System.out.print('─');
             }
             System.out.print('┤');
+            isValid = true;
         } while (!isValid);
         return 0;
     }
@@ -69,7 +71,8 @@ public class Menu {
     private int getLongest() {
         boolean biggestIsTitle = true;
         int biggest = menuTitle.length();
-        for (String menuChoice : menuChoices) {
+        for (int i = 0; i < 3; i++) {
+            String menuChoice = menuChoices[i];
             if (biggest < menuChoice.length()) {
                 biggest = menuChoice.length();
                 biggestIsTitle = false;

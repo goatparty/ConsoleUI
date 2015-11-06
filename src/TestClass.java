@@ -9,5 +9,6 @@ public class TestClass {
         Menu menu = new Menu();
         menu.setMenuTitle(menuTitle);
         //menu.addMenuChoices(arguments);
+        menu.callMenu();
     }
 }
