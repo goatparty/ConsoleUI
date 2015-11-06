@@ -21,7 +21,8 @@ public class Menu {
         if (DEBUGGING_MODE_ENABLED) {
             menuChoices[0] = "Quit the program";
             menuChoices[1] = "Reset the program";
-            menuChoices[2] = "Very Long String to Test stuff";
+            menuChoices[2] = "Very Long String to ";
+            counter = 3;
         }
     }
 // | (1) - gdhjdffhghdfghdfgh |
@@ -62,7 +63,17 @@ public class Menu {
             for (int x = 0; x < longest + 2; x++) {
                 System.out.print('─');
             }
-            System.out.print('┤');
+            System.out.print("┤\n");
+            //THIS IS WERE THE OTHER STUFF STARTS
+            for (int x = 0; x < counter; x++) {
+                System.out.printf("│ (%d) - %s",x+1,menuChoices[x]);
+                additionalNeeded = longest - menuChoices[x].length();
+                for (int i = 0; i < additionalNeeded - 5; i++) {
+                    System.out.print(' ');
+                }
+                System.out.print("│\n");
+            }
+
             isValid = true;
         } while (!isValid);
         return 0;
