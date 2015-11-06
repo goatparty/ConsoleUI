@@ -28,7 +28,7 @@ public class Menu {
             counter = 3;
         }
     }
-// | (1) - gdhjdffhghdfghdfgh |
+// | (1) - penis |
     public int callMenu() {
         int input;
         boolean longestIsMenu = false, greaterThanC = false;
@@ -102,7 +102,7 @@ public class Menu {
             } while(!inputLoopControl);
             isValid = true;
         } while (!isValid);
-        return 0;
+        return input;
     }
 
     private int getLongest() {
