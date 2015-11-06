@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.SynchronousQueue;
 
 public class Menu {
+    Scanner keyboard = new Scanner(System.in);
     private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "Eemil's ConsoleUI";
     private String menuTitle;
     private boolean menuTitleSet,menuChoicesAlreadyCalled;
@@ -29,8 +30,9 @@ public class Menu {
     }
 // | (1) - gdhjdffhghdfghdfgh |
     public int callMenu() {
+        int input;
         boolean longestIsMenu = false, greaterThanC = false;
-        boolean isValid = false;
+        boolean isValid = false,inputLoopControl = false;
         int longest = getLongest() + 1, additionalNeeded = 0;
         if (longest == menuTitle.length()) {
             longestIsMenu = true;
@@ -80,8 +82,24 @@ public class Menu {
                 System.out.print('─');
             }
             System.out.print('┘');
-
-
+            do {
+                System.out.print("Please Enter Choice: ");
+                try {
+                    input = keyboard.nextInt();
+                }
+                catch (InputMismatchException e) {
+                    System.out.println("Make Sure Your Input Is A Valid int");
+                    System.out.print("Please Enter Choice:");
+                    input = keyboard.nextInt();
+                }
+                if (input  < counter && input >= 0) {
+                    inputLoopControl = true;
+                }
+                else {
+                    System.out.println("Input too Large or Small");
+                    isValid = inputLoopControl = false;
+                }
+            } while(!inputLoopControl);
             isValid = true;
         } while (!isValid);
         return 0;
@@ -128,34 +146,3 @@ public class Menu {
         menuTitleSet = true;
     }
 }
-    /**private static int menu() {
-        int choice = 0;
-        boolean isValid = false;
-        String title = "CARPET COST CALCULATOR\n______________________";
-        System.out.println(title);
-        System.out.printf("Current Price/SF $%,.2f\n",carpet.getPrice());
-        System.out.println("Please Enter Selection:");
-        System.out.println("(1) - Enter X Dimension");
-        System.out.println("(2) - Enter Y Dimension");
-        System.out.println("(3) - Calculate Total Price");
-        System.out.println("(4) - Change Price(REQUIRES PASSWORD)");
-        System.out.println("(5) - Reset Carpet Object");
-        System.out.println("(0) - Exit Program");
-
-        do {
-            System.out.print("Enter Choice: ");
-            choice = keyboard.nextInt();
-            if (choice >= 0 || choice <= 5) {
-                isValid = true;
-            }
-            else {
-                System.out.println("Invalid Input: Please Try Again\nExpected Input: 0-5\nActual Input: " + choice);
-                isValid = false;
-            }
-        } while(!isValid);
-
-        clearScreen();
-
-        return choice;
-    }
-*/
