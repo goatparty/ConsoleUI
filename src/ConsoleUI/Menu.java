@@ -5,7 +5,7 @@ import java.util.concurrent.SynchronousQueue;
 
 public class Menu {
     Scanner keyboard = new Scanner(System.in);
-    private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "Eemil's ConsoleUI";
+    private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "goatParty's ConsoleUI";
     private String menuTitle;
     private boolean menuTitleSet,menuChoicesAlreadyCalled;
     private String[] menuChoices = new String[900];
@@ -17,7 +17,7 @@ public class Menu {
     private final boolean DEBUGGING_MODE_ENABLED = true; //TODO: Check This
 
     public Menu() {
-        menuTitle = "Generic Program Using Eemil's Menu Program. V" + VERSION_NUMBER;
+        menuTitle = "Generic Program Using Goat Party's Menu Program. V" + VERSION_NUMBER;
         menuTitleSet = false;
         numMenuChoices = 0;
         menuChoicesAlreadyCalled = false;
@@ -28,7 +28,7 @@ public class Menu {
             counter = 3;
         }
     }
-// | (1) - penis |
+// | (1) - jhjhhjjhjhjhjh |
     public int callMenu() {
         int input;
         boolean longestIsMenu = false, greaterThanC = false;
@@ -40,7 +40,6 @@ public class Menu {
         if (longest > MENU_COPYRIGHT.length() + 1) {
             greaterThanC = true;
         }
-        //Eemil's ConsoleUI
         do {
             int titleLength = menuTitle.length();
             System.out.print('╒');
@@ -96,8 +95,9 @@ public class Menu {
                     inputLoopControl = true;
                 }
                 else {
-                    System.out.println("Input too Large or Small");
-                    isValid = inputLoopControl = false;
+                    System.out.println("Input Out Of Bounds");
+                    isValid = false;
+                    inputLoopControl = false;
                 }
             } while(!inputLoopControl);
             isValid = true;
@@ -146,3 +146,5 @@ public class Menu {
         menuTitleSet = true;
     }
 }
+
+
