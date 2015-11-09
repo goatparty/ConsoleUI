@@ -1,9 +1,9 @@
 package ConsoleUI;
-
 import java.util.*;
-import java.util.concurrent.SynchronousQueue;
+//import java.util.concurrent.SynchronousQueue;
 
 public class Menu {
+
     Scanner keyboard = new Scanner(System.in);
     private final String VERSION_NUMBER = "0.0.1", MENU_COPYRIGHT = "goatParty's ConsoleUI";
     private String menuTitle;
@@ -24,11 +24,11 @@ public class Menu {
         if (DEBUGGING_MODE_ENABLED) {
             menuChoices[0] = "Quit the program";
             menuChoices[1] = "Reset the program";
-            menuChoices[2] = "Very Long String to ";
+            menuChoices[2] = "Very Long String to testetsett ttesttets";
             counter = 3;
         }
     }
-// | (1) - jhjhhjjhjhjhjh |
+// | (1) - sa |
     public int callMenu() {
         int input;
         boolean longestIsMenu = false, greaterThanC = false;
@@ -42,6 +42,7 @@ public class Menu {
         }
         do {
             int titleLength = menuTitle.length();
+            //System.out.print('CSI 7');
             System.out.print('╒');
             if (!greaterThanC) {
                 for (int x = 0; x < longest; x++) {
@@ -55,18 +56,18 @@ public class Menu {
                     System.out.print('═');
                 }
             }
-            System.out.print("╕\n");
+            System.out.print("╕▒\n");
             additionalNeeded = longest - menuTitle.length() + 1;
             System.out.print("│ " + menuTitle );
             for (int x = 0; x <additionalNeeded; x++) {
                 System.out.print(' ');
             }
-            System.out.println('│');
+            System.out.println("│▒");
             System.out.print('├');
             for (int x = 0; x < longest + 2; x++) {
                 System.out.print('─');
             }
-            System.out.print("┤\n");
+            System.out.print("┤▒\n");
             //THIS IS WERE THE OTHER STUFF STARTS
             for (int x = 0; x < counter; x++) {
                 System.out.printf("│ (%d) - %s",x+1,menuChoices[x]);
@@ -74,13 +75,18 @@ public class Menu {
                 for (int i = 0; i < additionalNeeded - 5; i++) {
                     System.out.print(' ');
                 }
-                System.out.print("│\n");
+                System.out.print("│▒\n");
             }
             System.out.print('└');
             for (int x = 0; x < longest + 2; x++) {
                 System.out.print('─');
             }
-            System.out.print('┘');
+            System.out.println("┘▒");
+            for (int x = 0; x < longest + 5; x++) {
+                System.out.print('▒');
+            }
+            System.out.println();
+
             do {
                 System.out.print("Please Enter Choice: ");
                 try {
@@ -91,7 +97,7 @@ public class Menu {
                     System.out.print("Please Enter Choice:");
                     input = keyboard.nextInt();
                 }
-                if (input  < counter && input >= 0) {
+                if (input  <= counter && input >= 0) {
                     inputLoopControl = true;
                 }
                 else {
